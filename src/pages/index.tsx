@@ -7,8 +7,9 @@ export default function Home() {
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [saved, setSaved] = useState(false)
+  const [retry, setRetry] = useState(false)
 
-  useEffect(() => {
+  const requestLocation = () => {
     if (!navigator.geolocation) {
       setError('Geolocation is not supported by your browser')
       return
@@ -20,6 +21,7 @@ export default function Home() {
         const lng = position.coords.longitude
 
         setLocation({ lat, lng })
+        setError(null)
 
         try {
           await addDoc(collection(db, 'locations'), {
@@ -33,9 +35,14 @@ export default function Home() {
         }
       },
       (err) => {
-        setError(`Error getting location: ${err.message}`)
+        setError('Location permission denied. Please allow location access.')
+        setRetry(true)
       }
     )
+  }
+
+  useEffect(() => {
+    requestLocation()
   }, [])
 
   return (
