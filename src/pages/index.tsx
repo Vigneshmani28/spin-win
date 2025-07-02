@@ -56,36 +56,18 @@ export default function Home() {
     <>
       <Head>
         <title>🎯 Spin to Win!</title>
-        <meta
-          name="description"
-          content="Try your luck and win exciting prizes 🎁"
-        />
+        <meta name="description" content="Try your luck and win exciting prizes 🎁" />
         <meta property="og:title" content="🎯 Spin to Win!" />
-        <meta
-          property="og:description"
-          content="Try your luck and win exciting prizes 🎁"
-        />
+        <meta property="og:description" content="Try your luck and win exciting prizes 🎁" />
         <meta property="og:type" content="website" />
-        <meta
-          property="og:image"
-          content="https://spin-win-gamma.vercel.app/meta.png"
-        />
+        <meta property="og:image" content="https://spin-win-gamma.vercel.app/meta.png" />
         <meta property="og:url" content="https://spin-win-gamma.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
         <meta name="twitter:title" content="🎯 Spin to Win!" />
-        <meta
-          name="twitter:description"
-          content="Try your luck and win exciting prizes 🎁"
-        />
-        <meta
-          name="twitter:image"
-          content="https://spin-win-gamma.vercel.app/meta.png"
-        />
-        <meta property="og:title" content="WhatsApp"/>
-        <meta property="og:description" content="Try your luck and win exciting prizes 🎁"/>
-        <meta property="og:url" content="https://whatsapp.com"/>
-        <meta property="og:image"content="https://spin-win-gamma.vercel.app/meta.png"/>
+        <meta name="twitter:description" content="Try your luck and win exciting prizes 🎁" />
+        <meta name="twitter:image" content="https://spin-win-gamma.vercel.app/meta.png" />
       </Head>
+
 
       <Box
         minHeight="100vh"
