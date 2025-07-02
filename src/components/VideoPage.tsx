@@ -48,62 +48,63 @@ const comments = [
 
 const thumbnails = [
   {
-    title : "EP04 - Solo Trip to B..Bihar",
-    image : "/thumbnails/one.jpg"
+    title: "EP01 - दिल्ली की सैर 🕌",
+    image: "/thumbnails/five.jpg"
   },
   {
-    title : "EP05 - Solo Trip to B..Bihar",
-    image : "/thumbnails/two.jpg"
+    title: "EP02 - Solo Trip to Himachal 🚶‍♂️",
+    image: "/thumbnails/three.jpg"
   },
   {
-    title : "EP04 - Solo Trip to B..Bihar",
-    image : "/thumbnails/three.jpg"
+    title: "EP03 - बारिश में बाइक ट्रिप 🌧️",
+    image: "/thumbnails/seven.jpg"
   },
   {
-    title : "EP05 - Solo Trip to B..Bihar",
-    image : "/thumbnails/two.jpg"
+    title: "EP04 - गोवा बीच पार्टी 🏖️",
+    image: "/thumbnails/one.jpg"
   },
   {
-    title : "EP04 - Solo Trip to B..Bihar",
-    image : "/thumbnails/four.jpg"
+    title: "EP05 - ट्रैवल Vlog बिहार ✈️",
+    image: "/thumbnails/two.jpg"
   },
   {
-    title : "EP05 - Solo Trip to B..Bihar",
-    image : "/thumbnails/two.jpg"
+    title: "EP06 - पहाड़ों में अकेला सफर ⛰️",
+    image: "/thumbnails/six.jpg"
   },
   {
-    title : "EP04 - Solo Trip to B..Bihar",
-    image : "/thumbnails/three.jpg"
+    title: "EP07 - Train Journey to Varanasi 🚆",
+    image: "/thumbnails/four.jpg"
   },
   {
-    title : "EP05 - Solo Trip to B..Bihar",
-    image : "/thumbnails/four.jpg"
+    title: "EP08 - खाने का जुनून 🍛",
+    image: "/thumbnails/one.jpg"
   },
   {
-    title : "EP04 - Solo Trip to B..Bihar",
-    image : "/thumbnails/three.jpg"
+    title: "EP09 - झील के किनारे रात 🌃",
+    image: "/thumbnails/three.jpg"
   },
   {
-    title : "EP05 - Solo Trip to B..Bihar",
-    image : "/thumbnails/four.jpg"
+    title: "EP10 - दोस्तों के साथ मस्ती 😂",
+    image: "/thumbnails/seven.jpg"
   },
   {
-    title : "EP04 - Solo Trip to B..Bihar",
-    image : "/thumbnails/three.jpg"
+    title: "EP11 - ट्रेकिंग एडवेंचर 🥾",
+    image: "/thumbnails/two.jpg"
   },
   {
-    title : "EP05 - Solo Trip to B..Bihar",
-    image : "/thumbnails/four.jpg"
+    title: "EP12 - एक दिन गाँव में 🏡",
+    image: "/thumbnails/five.jpg"
   },
   {
-    title : "EP04 - Solo Trip to B..Bihar",
-    image : "/thumbnails/one.jpg"
+    title: "EP13 - मुंबई लोकल का सफर 🚇",
+    image: "/thumbnails/four.jpg"
   },
   {
-    title : "EP05 - Solo Trip to B..Bihar",
-    image : "/thumbnails/two.jpg"
-  },
+    title: "EP14 - चाय पर चर्चा ☕",
+    image: "/thumbnails/six.jpg"
+  }
 ]
+
 
 const VideoPage = () => {
   return (
@@ -124,7 +125,7 @@ const VideoPage = () => {
             position="relative"
           >
             <img
-              src="/video.avif"
+              src="/thumbnail.jpg"
               alt="Video thumbnail"
               style={{ width: '100%', height: '100%', objectFit: 'cover', opacity: 0.8 }}
             />
@@ -149,7 +150,7 @@ const VideoPage = () => {
 
           {/* Video Title */}
           <Typography variant="h5" fontWeight="bold" mt={2}>
-            A DAY IN BIHAR | गांव VLOG |UNSEEN SCENES
+            New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY
           </Typography>
 
           {/* Video Stats and Actions */}
@@ -202,7 +203,7 @@ const VideoPage = () => {
               1,245,678 views • Premiered 2 days ago
             </Typography>
             <Typography variant="body1" mt={1}>
-              A DAY IN BIHAR |DOCUMENTARY VLOG|UNSEEN SCENES
+              New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY
               
 Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is made for fair use for purposes such as criticism, comment, news reporting, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.
             </Typography>
