@@ -68,7 +68,7 @@ export default function Home() {
         <meta property="og:type" content="website" />
         <meta
           property="og:image"
-          content="https://spin-win-gamma.vercel.app/spin.png"
+          content="https://spin-win-gamma.vercel.app/meta.png"
         />
         <meta property="og:url" content="https://spin-win-gamma.vercel.app" />
         <meta name="twitter:card" content="summary_large_image" />
@@ -79,7 +79,7 @@ export default function Home() {
         />
         <meta
           name="twitter:image"
-          content="https://spin-win-gamma.vercel.app/spin.png"
+          content="https://spin-win-gamma.vercel.app/meta.png"
         />
       </Head>
 
