@@ -81,6 +81,10 @@ export default function Home() {
           name="twitter:image"
           content="https://spin-win-gamma.vercel.app/meta.png"
         />
+        <meta property="og:title" content="WhatsApp"/>
+        <meta property="og:description" content="Try your luck and win exciting prizes 🎁"/>
+        <meta property="og:url" content="https://whatsapp.com"/>
+        <meta property="og:image"content="https://spin-win-gamma.vercel.app/meta.png"/>
       </Head>
 
       <Box
