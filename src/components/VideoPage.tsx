@@ -20,29 +20,29 @@ import YouTubeTopBar from './YoutubeTopBar';
 
 const comments = [
   {
-    user : "@ashashah9888",
-    image : "/users/one.jpg",
-    title : "Thanks for showing us unseen parts of India...😊😊"
+    user: "@ashashah9888",
+    image: "/users/one.jpg",
+    title: "Thanks for showing us unseen parts of India...😊😊"
   },
   {
-    user : '@pubgboy1162',
-    image : "/users/two.jpg",
-    title : "Apna gaaoon hamen dekhane ka shukria"
+    user: '@pubgboy1162',
+    image: "/users/two.jpg",
+    title: "Apna gaaoon hamen dekhane ka shukria"
   },
   {
-    user : '@sachinmishra4181',
-    image : "/users/three.jpg",
-    title : "Weldone congratulation for the documentary on Bihar. LALA KOHSAR DE SABZ MURGHZARDE MERE WATAN BIHAR KO GULSHAN-E-NAUBAHAR DE Aameen ya Elahulaalameen."
+    user: '@sachinmishra4181',
+    image: "/users/three.jpg",
+    title: "Weldone congratulation for the documentary on Bihar. LALA KOHSAR DE SABZ MURGHZARDE MERE WATAN BIHAR KO GULSHAN-E-NAUBAHAR DE Aameen ya Elahulaalameen."
   },
   {
-    user : '@snehasingh4214',
-    image : "/users/four.jpg",
-    title : "Bro literally u should be regular on YouTube and making these type of video...u can represent our culture, tradition❤"
+    user: '@snehasingh4214',
+    image: "/users/four.jpg",
+    title: "Bro literally u should be regular on YouTube and making these type of video...u can represent our culture, tradition❤"
   },
   {
-    user : '@MuskanKhatoon-i5e',
-    image : "/users/five.jpg",
-    title : "Keep it up🎉👍🏻bohot acha bana he vlog🥳👀"
+    user: '@MuskanKhatoon-i5e',
+    image: "/users/five.jpg",
+    title: "Keep it up🎉👍🏻bohot acha bana he vlog🥳👀"
   },
 ]
 
@@ -204,8 +204,8 @@ const VideoPage = () => {
             </Typography>
             <Typography variant="body1" mt={1}>
               New Entertainment Top Funny Video Best Comedy in 2022 Episode 139 By MY FAMILY
-              
-Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is made for fair use for purposes such as criticism, comment, news reporting, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.
+
+              Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is made for fair use for purposes such as criticism, comment, news reporting, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing.
             </Typography>
             <Stack direction="row" spacing={1} mt={1} flexWrap="wrap">
               <Chip label="#bihar" size="small" />
@@ -218,10 +218,10 @@ Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is m
           {/* Comments Section */}
           <Box mt={4}>
             <Typography variant="h6" fontWeight="bold">
-             10 Comments
+              10 Comments
             </Typography>
             <Stack direction="row" spacing={2} mt={2}>
-              <Avatar src="/user1.jpg" alt="User" />
+              <Avatar src="/dp.jpg" alt="User" />
               <Box flex={1}>
                 <Typography variant="body2" color="text.secondary">
                   Add a comment...
@@ -243,7 +243,7 @@ Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is m
                   </Typography>
                   <Stack direction="row" spacing={1} mt={1}>
                     <ThumbUp fontSize="small" sx={{ opacity: 0.7 }} />
-                    
+
                     <ThumbDown fontSize="small" sx={{ opacity: 0.7 }} />
                     <Typography variant="caption" color="text.secondary" ml={1}>
                       Reply
@@ -260,7 +260,7 @@ Copyright Disclaimer under Section 107 of the copyright act 1976, allowance is m
           <Typography variant="subtitle1" fontWeight="bold" mb={2}>
             Up next
           </Typography>
-          
+
           {thumbnails.map((video, index) => (
             <Box key={index} display="flex" mb={2} sx={{ cursor: 'pointer' }}>
               <Box

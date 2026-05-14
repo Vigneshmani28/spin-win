@@ -1,10 +1,10 @@
-import { 
-  AppBar, 
-  Toolbar, 
-  InputBase, 
-  IconButton, 
+import {
+  AppBar,
+  Toolbar,
+  InputBase,
+  IconButton,
   Badge,
-  Avatar, 
+  Avatar,
   Box
 } from '@mui/material';
 import {
@@ -18,11 +18,11 @@ import {
 
 const YouTubeTopBar = () => {
   return (
-    <AppBar 
-      position="fixed" 
-      color="default" 
+    <AppBar
+      position="fixed"
+      color="default"
       elevation={0}
-      sx={{ 
+      sx={{
         bgcolor: 'white',
         borderBottom: '1px solid #e0e0e0',
         height: 64
@@ -34,12 +34,12 @@ const YouTubeTopBar = () => {
           <IconButton size="large" edge="start">
             <Menu />
           </IconButton>
-          <Box 
+          <Box
             component="img"
-            src="/youtube.png" 
+            src="/youtube.png"
             alt="YouTube"
-            sx={{ 
-              height: 40, 
+            sx={{
+              height: 40,
               ml: 2,
               cursor: 'pointer'
             }}
@@ -47,9 +47,9 @@ const YouTubeTopBar = () => {
         </Box>
 
         {/* Middle Section - Search */}
-        <Box 
-          sx={{ 
-            display: 'flex', 
+        <Box
+          sx={{
+            display: 'flex',
             alignItems: 'center',
             width: '100%',
             maxWidth: 600,
@@ -101,11 +101,11 @@ const YouTubeTopBar = () => {
               <Notifications />
             </Badge>
           </IconButton>
-          <Avatar 
-            src="/user-avatar.jpg" 
-            sx={{ 
-              width: 32, 
-              height: 32, 
+          <Avatar
+            src="/dp.jpg"
+            sx={{
+              width: 32,
+              height: 32,
               ml: 2,
               cursor: 'pointer'
             }}
